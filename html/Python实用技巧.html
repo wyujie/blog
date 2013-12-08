@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Python实用技巧</title>
+<link rel="stylesheet" href="http://yujiewu.duapp.com/static/css/global/foghorn.css" />
+</head>
+<body><div class="container"><h2 id="python技巧"><strong>Python技巧</strong></h2>
+
+<hr>
+
+<h4 id="两条原则">两条原则</h4>
+
+<ul>
+<li>当需要排序的时候,尽量设法使用内建 Python 列表的 sort 方法;</li>
+<li>当需要搜索的时候,尽量设法使用内建的字典</li>
+</ul>
+
+<h4 id="list转换成字符串">list转换成字符串</h4>
+
+<pre><code>"\n".join(['first line', 'second line'])
+</code></pre>
+
+<h4 id="过滤序列里面不满足条件的元素">过滤序列里面不满足条件的元素</h4>
+
+<pre><code>a = [1, 2, 3, 4, 5]; filter(lambda x: x&gt;5, a);   #&gt;&gt;&gt; [3,4,5]
+</code></pre>
+
+<h4 id="对一个或多个序列的元素进行操作">对一个或多个序列的元素进行操作</h4>
+
+<pre><code>a1 = map(lambda x: x+'1',['a','b','c'])；
+a2 = map(lambda x: x+'2',['a','b','c'])；
+map(lambda x,y: x+y, a1, a2)；  #&gt;&gt;&gt;  ['a1a2', 'b1b2', 'c1c2']
+</code></pre>
+
+<h4 id="对一个序列的元素进行迭操作每次操作的结果将成为下一次的初始值">对一个序列的元素进行迭操作（每次操作的结果将成为下一次的初始值）</h4>
+
+<pre><code>reduce(lambda x, y: x+y, [2, 3, 4], 1)   #&gt;&gt;&gt; 10
+</code></pre>
+
+<h4 id="遇到有关时间变化或者时间差的问题优先先考虑-datetimetimedelta">遇到有关“时间变化”或者“时间差”的问题,优先先考虑 datetime.timedelta</h4>
+
+<pre><code>import datetime;
+oneday = datetime.timedelta(1);#时间间隔为1天
+today = datetime.date.today(); 
+tomorrow = today + oneday
+</code></pre>
+
+<h4 id="将多个序列按索引值进行合并">将多个序列按索引值进行合并</h4>
+
+<pre><code>zip([1, 2], [4, 5])     #&gt;&gt; [(1, 4), (2, 5)]
+zip([1, 2, 3], [4, 5])     #&gt;&gt; [(1, 4), (2, 5)] 按最短的序列进行合并
+</code></pre>
+
+<h4 id="给字典初始化并设置默认值">给字典初始化并设置默认值</h4>
+
+<pre><code>d = dict();  
+d.setdefault('key', 'value');  #&gt;&gt;  {'key': 'value'}
+</code></pre>
+
+<h4 id="namedtuple动态生成类">Namedtuple：动态生成类</h4>
+
+<pre><code>import collections  
+# 生成一个Person类. 它拥有3个attrs, name, age, gender. 试试吧
+Person = collections.namedtuple('Person','name age gender',verbose=True)  
+</code></pre></div></body>
+</html>
