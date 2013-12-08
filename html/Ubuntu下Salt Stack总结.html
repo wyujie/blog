@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ubuntu下Salt Stack总结</title>
+<link rel="stylesheet" href="http://yujiewu.duapp.com/static/css/global/foghorn.css" />
+</head>
+<body><div class="container"><h2 id="ubuntu下salt-stack总结">Ubuntu下Salt Stack总结</h2>
+
+<p><strong>安装:</strong> </p>
+
+<pre>sudo add-apt-repository ppa:saltstack/salt
+sudo apt-get update
+sudo apt-get install salt-master
+sudo apt-get install salt-minion</pre>
+
+<p><br>
+<strong>Master配置:</strong></p>
+
+<pre><code>配置文件路径 ==&gt; /etc/salt/master.d/
+#在相应目录下新建文件(任意名字)
+#以下配置各个环境State的路径
+file_roots:
+  #base环境必须存在(其实有例外,但是没必要折腾)
+  base: #base环境以及拥有的State路径(缩进是必须的)
+    - /srv/salt/base
+  dev:  #dev环境以及拥有的State路径(缩进是必须的)
+    - /srv/salt/dev
+  qa:   #qa环境以及拥有的State路径(缩进是必须的)
+    - /srv/salt/qa
+  prod: #prod环境以及拥有的State路径(缩进是必须的)
+    - /srv/salt/prod
+</code></pre>
+
+<p><br>
+<strong>Minion配置:</strong></p>
+
+<pre><code>配置文件路径 ==&gt; /etc/salt/minion.d/
+#在相应目录下新建文件(任意名字)
+添加 ==&gt; master: yourserverip #换成master的IP
+</code></pre></div></body>
+</html>
