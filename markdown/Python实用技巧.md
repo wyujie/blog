@@ -1,7 +1,12 @@
-内置常用函数
-===================
-两条原则
--------------------
+**Python技巧**
+------
+
+
+----------
+
+
+#### 两条原则
+
 * 当需要排序的时候,尽量设法使用内建 Python 列表的 sort 方法;
 * 当需要搜索的时候,尽量设法使用内建的字典
 
@@ -32,3 +37,9 @@
 #### 给字典初始化并设置默认值
 	d = dict();  
 	d.setdefault('key', 'value');  #>>  {'key': 'value'}
+
+#### Namedtuple：动态生成类
+
+    import collections  
+    # 生成一个Person类. 它拥有3个attrs, name, age, gender. 试试吧
+    Person = collections.namedtuple('Person','name age gender',verbose=True)  
