@@ -1,154 +1,55 @@
 <!DOCTYPE html>
-<!-- saved from url=(0019)file:///tmp/30.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ubuntu下的MySQL配置</title>
+<link rel="stylesheet" href="http://yujiewu.duapp.com/static/css/global/foghorn.css" />
+</head>
+<body><div class="container"><h1 id="ubuntu下的mysql配置">Ubuntu下的MySQL配置</h1>
 
-body{
-  color:#444;
-  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
-              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
-  font-size:12px;
-  line-height:1.5em;
-  background:#fefefe;
-  width: 45em;
-  margin: 10px auto;
-  padding: 1em;
-  outline: 1300px solid #FAFAFA;
-}
+<h5 id="默认配置文件路径">默认配置文件路径</h5>
 
-a{ color: #0645ad; text-decoration:none;}
-a:visited{ color: #0b0080; }
-a:hover{ color: #06e; }
-a:active{ color:#faa700; }
-a:focus{ outline: thin dotted; }
-a:hover, a:active{ outline: 0; }
+<pre><code>/etc/mysql/my.cnf
+</code></pre>
 
-span.backtick {
-  border:1px solid #EAEAEA;
-  border-radius:3px;
-  background:#F8F8F8;
-  padding:0 3px 0 3px;
-}
+<h5 id="更改用户root密码">更改用户（root）密码</h5>
 
-::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
-::selection{background:rgba(255,255,0,0.3);color:#000}
-
-a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
-a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
-
-p{
-margin:1em 0;
-}
-
-img{
-max-width:100%;
-}
-
-h1,h2,h3,h4,h5,h6{
-font-weight:normal;
-color:#111;
-line-height:1em;
-}
-h4,h5,h6{ font-weight: bold; }
-h1{ font-size:2.5em; }
-h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
-h3{ font-size:1.5em; }
-h4{ font-size:1.2em; }
-h5{ font-size:1em; }
-h6{ font-size:0.9em; }
-
-blockquote{
-color:#666666;
-margin:0;
-padding-left: 3em;
-border-left: 0.5em #EEE solid;
-}
-hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
-
-
-pre , code, kbd, samp { 
-  color: #000; 
-  font-family: monospace; 
-  font-size: 0.88em; 
-  border-radius:3px;
-  background-color: #F8F8F8;
-  border: 1px solid #CCC; 
-}
-pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
-pre code { border: 0px !important; padding: 0;}
-code { padding: 0 3px 0 3px; }
-
-b, strong { font-weight: bold; }
-
-dfn { font-style: italic; }
-
-ins { background: #ff9; color: #000; text-decoration: none; }
-
-mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
-
-sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
-
-ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
-li p:last-child { margin:0 }
-dd { margin: 0 0 0 2em; }
-
-img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
-
-table { border-collapse: collapse; border-spacing: 0; }
-td { vertical-align: top; }
-
-@media only screen and (min-width: 480px) {
-body{font-size:14px;}
-}
-
-@media only screen and (min-width: 768px) {
-body{font-size:16px;}
-}
-
-@media print {
-  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
-  body{font-size:12pt; max-width:100%; outline:none;}
-  a, a:visited { text-decoration: underline; }
-  hr { height: 1px; border:0; border-bottom:1px solid black; }
-  a[href]:after { content: " (" attr(href) ")"; }
-  abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
-  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
-  tr, img { page-break-inside: avoid; }
-  img { max-width: 100% !important; }
-  @page :left { margin: 15mm 20mm 15mm 10mm; }
-  @page :right { margin: 15mm 10mm 15mm 20mm; }
-  p, h2, h3 { orphans: 3; widows: 3; }
-  h2, h3 { page-break-after: avoid; }
-}
-</style><title>Ubuntu下的MySQL配置</title></head><body><h1 id="ubuntumysql">Ubuntu下的MySQL配置</h1>
-<h5 id="_1">默认配置文件路径</h5>
-<p></p><pre>/etc/mysql/my.cnf</pre><p></p>
-<h5 id="root">更改用户（root）密码</h5>
-<p></p><pre>#命令行方式
+<pre>#命令行方式
 mysqladmin -u USER -p password NEWPASSWORD
 </pre>
+
 <pre>#或者， 以root身份进入mysql
 mysql -u root -p;
 use mysql;
 UPDATE user SET password=PASSWORD('NEWPASSWORD') WHERE user='root';
-FLUSH PRIVILEGES; # 刷新系统权限表</pre><p></p>
-<h5 id="_2">创建用户</h5>
-<p></p><pre>insert into mysql.user(Host,User,Password) values("localhost","username",password("pwd"));</pre><p></p>
-<h5 id="_3">授予权限</h5>
-<p></p><pre>grant all privileges on db.* to user@localhost; #授予db的所有表的所有权限给user@localhost
+FLUSH PRIVILEGES; # 刷新系统权限表</pre>
+
+<h5 id="创建用户">创建用户</h5>
+
+<pre>insert into mysql.user(Host,User,Password) values("localhost","username",password("pwd"));</pre>
+
+<h5 id="授予权限">授予权限</h5>
+
+<pre>grant all privileges on db.* to user@localhost; #授予db的所有表的所有权限给user@localhost
 grant select,update,insert on db.test to user@localhost; #授予db.test表的select,update和insert权限给user@localhost
-FLUSH PRIVILEGES; # 刷新系统权限表</pre><p></p>
-<h5 id="_4">删除用户</h5>
-<p></p><pre>DELETE FROM user WHERE User=user and Host="localhost";</pre><p></p>
-<h5 id="_5">创建数据库（设定字符集）</h5>
-<p></p><pre>GBK: create database test2 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
-UTF8: CREATE DATABASE test2 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</pre><p></p>
-<h5 id="_6">删除数据库</h5>
-<p></p><pre>drop database dbname;</pre><p></p>
-<h5 id="_7">导出数据</h5>
-<p></p><pre>mysqldump [OPTIONS] database [tables] &gt; /tmp/dump.sql
+FLUSH PRIVILEGES; # 刷新系统权限表</pre>
+
+<h5 id="删除用户">删除用户</h5>
+
+<pre>DELETE FROM user WHERE User=user and Host="localhost";</pre>
+
+<h5 id="创建数据库设定字符集">创建数据库（设定字符集）</h5>
+
+<pre>GBK: create database test2 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
+UTF8: CREATE DATABASE test2 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</pre>
+
+<h5 id="删除数据库">删除数据库</h5>
+
+<pre>drop database dbname;</pre>
+
+<h5 id="导出数据">导出数据</h5>
+
+<pre>mysqldump [OPTIONS] database [tables] &gt; /tmp/dump.sql
 [OPTIONS]
 -P或--port          要连接的服务器端口,如果MySQL的端口不是3306,就要用到这个参数 
 -d或--no-data       没有详细数据,仅仅导出数据的结构 
@@ -156,6 +57,26 @@ UTF8: CREATE DATABASE test2 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;<
 --add-drop-table    在创建表时,先drop掉已经存在的同名表[一般跟在-d参数后]
 [OPTIONS] <br>
 mysqldump -h localhost -u root -p --add-drop-database --add-drop-table test&gt;/home/chuzj/daochu.sql #导出数据库test表结构和数据
-mysqldump -h localhost -u root -p -d --add-drop-database --add-drop-table test&gt;/home/chuzj/daochu.sql #导出数据库test表结构</pre><p></p>
-<h5 id="_8">导入数据</h5>
-<p></p><pre>mysql -h localhost -u root -p test &lt; /home/chuzj/daochu.sql –default-character-set=utf8; #导入数据并设置字符集 </pre><p></p></body></html>
+mysqldump -h localhost -u root -p -d --add-drop-database --add-drop-table test&gt;/home/chuzj/daochu.sql #导出数据库test表结构</pre>
+
+<h5 id="导入数据">导入数据</h5>
+
+<pre>mysql -h localhost -u root -p test &lt; /home/chuzj/daochu.sql –default-character-set=utf8; #导入数据并设置字符集 </pre>
+
+<h5 id="远程连接">远程连接</h5>
+
+<pre><code>#创建远程连接用户username, 
+insert into mysql.user(Host,User,Password) values("%","username",password("pwd"));
+
+#授予刚创建用户的对于db.table的权限.远程登录密码:usernamepwd
+GRANT ALL PRIVILEGES ON db.table TO username@"%" IDENTIFIED BY "usernamepwd";
+
+flush privileges; #刷新权限
+
+#修改数据库本地监听地址
+sudo vim /etc/mysql/my.cnf
+#找到文件中的 "bind-address = 127.0.0.1"
+#将其注释掉
+sudo service mysql restart #重启MySQL服务器
+</code></pre></div></body>
+</html>
